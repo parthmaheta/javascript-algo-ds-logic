@@ -1,47 +1,47 @@
 /*
- javascript function to get Full Pyramid In * (STAR) or number pattern
+ javascript function to get Inverted Full Pyramid In * (STAR) or number pattern
 
  example :  
-        input  getFullPyramidPattern(5),getFullPyramidPattern(5,true)
+        input  getInvertedFullPyramidPattern(5),getInvertedFullPyramidPattern(5,true)
         output       
-                           *
-                          * *
-                         * * *
-                        * * * *
-                       * * * * *
+                        * * * * *
+                         * * * *
+                          * * *
+                           * *
+                            *
         
-        input  getFullPyramidPattern(5,false)
+        input  getInvertedFullPyramidPattern(5,false)
         output      
-                          1
-                         1 2
-                        1 2 3
-                       1 2 3 4
-                      1 2 3 4 5
+                            1 2 3 4 5
+                             1 2 3 4
+                              1 2 3
+                               1 2
+                                1
 
-        input  getFullPyramidPattern(4),getFullPyramidPattern(4,true)
+        input  getInvertedFullPyramidPattern(4),getInvertedFullPyramidPattern(4,true)
          output        
-                          *           
-                         * *
-                        * * *
-                       * * * *
-                 
-        input   getFullPyramidPattern(4,false)
+                            * * * *
+                             * * *
+                              * *  
+                               *           
+         
+        input   getInvertedFullPyramidPattern(4,false)
         output        
-                          1
-                         1 2
-                        1 2 3
-                       1 2 3 4
+                            1 2 3 4
+                             1 2 3
+                              1 2
+                               1
 */
 
 
-function getFullPyramidPattern(row,isStar=true){
+function getInvertedFullPyramidPattern(row,isStar=true){
     let answer="";
     for(let currentRow=0;currentRow<row;currentRow++){
         let count=isStar ? "*": 1;
-        for(let space=row-1;space>currentRow;space--){
+        for(let space=0;space<currentRow;space++){
           answer+="  ";
         }
-        for(let currentCol=0;currentCol<=currentRow;currentCol++)
+        for(let currentCol=row;currentCol>currentRow;currentCol--)
         {
             answer+="   "+count;
             if(!isStar)
@@ -54,7 +54,7 @@ function getFullPyramidPattern(row,isStar=true){
 
 
 
-console.log(getFullPyramidPattern(5));
-console.log(getFullPyramidPattern(5,false));
-console.log(getFullPyramidPattern(4,true));
-console.log(getFullPyramidPattern(4,false));
+console.log(getInvertedFullPyramidPattern(5));
+console.log(getInvertedFullPyramidPattern(5,false));
+console.log(getInvertedFullPyramidPattern(4,true));
+console.log(getInvertedFullPyramidPattern(4,false));
